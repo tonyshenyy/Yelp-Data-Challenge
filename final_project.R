@@ -4,7 +4,7 @@ setwd("../Desktop/stat151a_final_project/Yelp-Data-Challenge/")
 # load the dataset
 library(jsonlite)
 business <- stream_in(file("yelp_academic_dataset_business.json"))
-review <- stream_in(file("yelp_review_clean.json"))
+review <- stream_in(file("yelp_clean_training1.json"))
 
 flatten_business <- function(bus) {
   attr <- bus$attributes
