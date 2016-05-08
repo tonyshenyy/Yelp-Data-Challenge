@@ -17,7 +17,7 @@ for line in fileinput.input("yelp_academic_dataset_business.json"):
 	if restaurant_matcher.search(line) is not None:
 		bus_id = re.search('"business_id":\s"([^"]*)"', line).group(1)
 		restaurants.add(bus_id)
-		line = re.sub('("type":.*",\s)', "", line.rstrip())
+		line = re.sub('(,\s?"type":.*")', "", line.rstrip())
 		new_business_file.write(line + "\n")
 	if counter%10000 == 0:
 		print(str(counter) + " records processed")
