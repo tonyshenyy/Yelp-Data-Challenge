@@ -60,13 +60,6 @@ Mode <- function (x, na.rm) {
   return(xmode)
 }
 
-business_temp <- business_temp[ , c("open", "review_count", "longitude", "stars",
-                                    "latitude", "Accepts Credit Cards", "Price Range",
-                                    "Good For Groups", "Take-out", "Good for Kids")]
-dd0_train <- dd0_train[ , c("Attire")]
-
-business_temp$attire <- dd0_train
-
 tempData <- mice(business_temp,m=5,maxit=50,meth='pmm',seed=500)
 business_data <- complete(tempData,1)
 
